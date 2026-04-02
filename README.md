@@ -1,26 +1,40 @@
 # Integrator-Environment-Checker 🛠️
 
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
+![Open Source](https://img.shields.io/badge/Open%20Source-Heart-red)
 ![Hardware](https://img.shields.io/badge/Hardware-ESP32%20%7C%20Arduino%20%7C%20Sensors-orange)
 
 ## 📋 Overview
-In complex hardware integration environments (such as Electro-Optics or Robotics), system readiness is the foundation of successful development. This utility is a pre-flight diagnostic tool designed for hardware integrators and embedded engineers. 
+In complex hardware integration environments (Robotics, Electro-Optics, Embedded Systems), ensuring system readiness is the foundation of successful development. 
 
-It automates the tedious process of manually checking COM ports, camera feed availability, and network stability, ensuring your workstation is "Ready for Mission" in seconds.
+**Integrator-Environment-Checker** is a professional pre-flight diagnostic tool. It automates the verification of COM ports, optical sensors (cameras), network stability, and system telemetry (CPU/RAM/Battery), ensuring your workstation is "Ready for Mission" in seconds.
+
+---
 
 ## ✨ Key Features
-- **Smart Serial Detection:** Automatically scans and identifies active communication ports (CP210x, FTDI, Arduino, etc.) without port locking.
-- **Optical Sensor Validation:** Performs a low-level handshake with primary camera sensors using OpenCV to verify frame buffer availability.
-- **Network Health Check:** Validates internet connectivity via TCP handshake to ensure cloud-based APIs or update servers are reachable.
-- **Integrator's Report:** Generates a structured terminal summary with a clear "READY" or "MAINTENANCE" status.
+- **Modular Probe Architecture:** Easily extendable system to add new hardware checks.
+- **Smart Serial Detection:** Scans and identifies active communication ports (CP210x, FTDI, Arduino, etc.).
+- **Optical Sensor Validation:** Handshakes with camera sensors using OpenCV (DirectShow support for Windows stability).
+- **System Telemetry:** Real-time monitoring of CPU load, RAM availability, and Battery/Power status.
+- **Network Health:** TCP-level connectivity check to ensure cloud-sync and API availability.
+- **JSON Configuration:** Highly flexible setup via `config.json` without touching the core logic.
 
 ---
 
 ## 🛠 Project Structure
-```text
-Integrator-Environment-Checker/
-├── main.py              # Core diagnostic logic & hardware probes
-├── requirements.txt     # Dependency manifest
-├── .gitignore           # Version control exclusions (Python/IDE)
-└── README.md            # Professional documentation
+The project follows a modular design to support open-source contributions:
+
+Integrator-Environment-Checker
+├── src/
+│   ├── hardware_probes.py   # Serial & Camera logic           
+│   ├── main.py              # Application Entry Point
+│   ├── network_probes.py    # Connectivity & DNS checks
+│   └── system_probes.py     # CPU, RAM & Battery telemetry
+│
+├── .gitignore    
+├── config.json              # User-defined thresholds & IDs        
+├── CONTRIBUTING.md          # Guidelines for contributors
+├── LICENSE                  # MIT License
+├── README.md                # This documentation
+└── requirements.txt         # Dependency manifest
