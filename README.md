@@ -25,16 +25,16 @@ In complex hardware integration environments (Robotics, Electro-Optics, Embedded
 ## 🛠 Project Structure
 The project follows a modular design to support open-source contributions:
 
-Integrator-Environment-Checker
-├── src/
-│   ├── hardware_probes.py   # Serial & Camera logic           
-│   ├── main.py              # Application Entry Point
-│   ├── network_probes.py    # Connectivity & DNS checks
-│   └── system_probes.py     # CPU, RAM & Battery telemetry
-│
-├── .gitignore    
-├── config.json              # User-defined thresholds & IDs        
-├── CONTRIBUTING.md          # Guidelines for contributors
-├── LICENSE                  # MIT License
-├── README.md                # This documentation
-└── requirements.txt         # Dependency manifest
+Integrator-Environment-Checker/
+├── src/                         # Core source code
+│   ├── main.py                  # Entry point - runs the diagnostic suite
+│   ├── hardware_probes.py       # Hardware logic (Camera handshakes & Serial scanning)
+│   ├── network_probes.py        # Connectivity checks (DNS & Socket pings)
+│   ├── system_probes.py         # Workstation telemetry (CPU, RAM, Battery)
+│   └── __init__.py              # Makes 'src' a Python package
+├── config.json                  # User-defined thresholds & hardware IDs
+├── .gitignore                   # Keeps the repo clean (excludes venv, __pycache__)
+├── CONTRIBUTING.md              # Guidelines for open-source contributors
+├── LICENSE                      # MIT License
+├── README.md                    # Project documentation
+└── requirements.txt             # List of Python dependencies
